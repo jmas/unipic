@@ -520,11 +520,13 @@ if(!empty($_GET['url'])){
     }else{
         $s = 0;
     }
+
+    $output = isset($_GET['output']) ? '_' . $_GET['output'] : '';
     
+    $filename = md5($_GET['url']) . '_' . $w . '_' . $h . '_' . $t . '_' . $a . '_' . $c . '_' . $q . $output;
     
-    $filename = md5($_GET['url']) . '_' . $w . '_' . $h . '_' . $t . '_' . $a . '_' . $c . '_' . $q;
     checkImage($filename);
-    
+
     //SSL code
     if(substr($_GET['url'],0,4) == 'ssl:'){
         $ssl = true;
@@ -536,9 +538,9 @@ if(!empty($_GET['url'])){
     }
     
     //IDN-rewriting
-    // if(idn_to_ascii($parts['host']) == ''){
-    //  $parts['host'] = utf8_encode($parts['host']);
-    // }
+    if(idn_to_ascii($parts['host']) == ''){
+     $parts['host'] = utf8_encode($parts['host']);
+    }
     
     if(isset($_GET['encoding']) && $_GET['encoding'] == 'base64'){
         ob_start('custom_base64');
