@@ -744,7 +744,7 @@ if(!empty($_GET['url'])){
             <ul>
                 <li>We don't support animated images (yet).</li>
                 <li>We do support GIF, JPEG, PNG, BMP and even transparent images!</li>
-                <li>Full IPv6 support, <a href="http://ipv6-test.com/validate.php?url=images.weserv.nl" rel="nofollow">serving dual stack</a>, and supporting <a href="//images.weserv.nl/?url=ipv6.google.com/logos/logo.gif">IPv6-only origin hosts</a>.</li>
+                <li>Full IPv6 support<?php /*<a href="http://ipv6-test.com/validate.php?url=images.weserv.nl" rel="nofollow">serving dual stack</a>, and supporting <a href="//images.weserv.nl/?url=ipv6.google.com/logos/logo.gif">IPv6-only origin hosts</a> */ ?>.</li>
                 <li>SSL support, you can use HTTPS.</li>
             </ul>
 
