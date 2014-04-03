@@ -470,6 +470,7 @@ function checkImage($filename)
         foreach ($types as $type) {
             if (file_exists($picDirPath . $filename . '.' . $type)) {
                 $fName = $filename . '.' . $type;
+                break;
             }
         }
 
