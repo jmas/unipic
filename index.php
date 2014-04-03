@@ -471,7 +471,7 @@ function checkImage($filename)
             }
         }
 
-        if ($path) {
+        if ($fName) {
             header("Location: pic/" . $fName);
             exit;
         }
@@ -538,9 +538,9 @@ if(!empty($_GET['url'])){
     }
     
     //IDN-rewriting
-    if(idn_to_ascii($parts['host']) == ''){
-     $parts['host'] = utf8_encode($parts['host']);
-    }
+    // if(idn_to_ascii($parts['host']) == ''){
+    //  $parts['host'] = utf8_encode($parts['host']);
+    // }
     
     if(isset($_GET['encoding']) && $_GET['encoding'] == 'base64'){
         ob_start('custom_base64');
