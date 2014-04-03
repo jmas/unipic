@@ -451,14 +451,32 @@ function custom_base64($input){
     }
 }
 
-function checkImage($filename) {
+function checkImage($filename)
+{
+    $picDirPath = './pic/';
+    $datFileName = './data/' . $filename . '.dat';
+    $types = array('jpg', 'png', 'gif');
+    $jpgFileName = $picDirPath . $filename . '.jpg';
+    $pngFileName = $picDirPath . $filename . '.png';
+    $gifFileName = $picDirPath . $filename . '.gif';
 
-    if ($data = @file('./data/' . $filename . '.dat')) {
+    if (file_exists($datFileName)) {
+        $data = file($datFileName);
         header("Location:" . $data[0]);
         exit;
-    } elseif ($image = glob('./pic/' . $filename . '.{jpg,png,gif}', GLOB_BRACE)) {
-        header("Location:" . $image[0]);
-        exit;
+    } else {
+        $fName = null;
+
+        foreach ($types as $type) {
+            if (file_exists($picDirPath . $filename . '.' . $type)) {
+                $fName = $filename . '.' . $type;
+            }
+        }
+
+        if ($path) {
+            header("Location: pic/" . $fName);
+            exit;
+        }
     }
 }
 
