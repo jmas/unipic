@@ -456,9 +456,6 @@ function checkImage($filename)
     $picDirPath = './pic/';
     $datFileName = './data/' . $filename . '.dat';
     $types = array('jpg', 'png', 'gif');
-    $jpgFileName = $picDirPath . $filename . '.jpg';
-    $pngFileName = $picDirPath . $filename . '.png';
-    $gifFileName = $picDirPath . $filename . '.gif';
 
     if (file_exists($datFileName)) {
         $data = file($datFileName);
