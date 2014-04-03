@@ -727,6 +727,10 @@ if(!empty($_GET['url'])){
                 text-align:center;
             }
 
+            .example img {
+                border: 1px solid #eee;
+            }
+
             #mb {
                 margin:14px 0;
             }
